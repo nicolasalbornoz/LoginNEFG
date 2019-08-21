@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LoginNEFG</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="nefg">NEFG</string>
+    <string name="login">Login</string>
+    <string name="correo">Email Address</string>
+    <string name="usuario">User Name</string>
+    <string name="contraseña">Password</string>
+    <string name="c_contraseña">Confirm Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="register">Register</string>
+    <string name="sing_up">Sing Up</string>
+    <string name="already_a">Already have an account.</string>
+</resources>
