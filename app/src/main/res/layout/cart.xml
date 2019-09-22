@@ -1,0 +1,38 @@
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_margin="2dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView android:layout_width="107dp"
+                       android:layout_height="98dp"
+                       android:src="@drawable/ic_perfil"
+                       tools:ignore="MissingConstraints" tools:layout_editor_absoluteY="8dp"
+                       tools:layout_editor_absoluteX="6dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:hint="@string/restaurante_1"
+                    android:id="@+id/tvRestaurante_stock"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.454"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="24dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

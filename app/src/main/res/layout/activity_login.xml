@@ -31,6 +31,15 @@
 
             />
 
+            <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+            />
+
             <EditText android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:id="@+id/etCorreo"
@@ -50,18 +59,46 @@
                       android:drawablePadding="10dp"
                       android:drawableStart="@drawable/candado"
             />
+            <!--<com.facebook.login.widget.LoginButton-->
+                    <!--android:id="@+id/login_button"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:layout_marginTop="30dp"-->
+                    <!--android:layout_marginBottom="30dp" />-->
 
-            <Button android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btLogearse"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/login"
-                    android:textSize="16sp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:background="@color/boton_login"
-            />
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:layout_marginTop="25dp"
+                          android:gravity="center"
+            >
+
+                <!--<ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:layout_marginRight="50dp"
+                           android:src="@drawable/facebook"
+                           android:layout_gravity="center_vertical"
+                />-->
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btLogearse"
+                        android:text="@string/login"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:background="@color/boton_login"
+                />
+
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:layout_marginLeft="50dp"
+                           android:src="@drawable/gmail"
+                           android:layout_gravity="center_vertical"
+                />
+
+            </LinearLayout>
 
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"

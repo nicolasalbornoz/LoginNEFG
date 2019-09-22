@@ -5,30 +5,36 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
+import java.sql.DatabaseMetaData
 
 class LoginActivity : AppCompatActivity() {
 
-    private var correo_comparar = ""
-    private var contraseña_comparar = ""
+    //private var correo_comparar = ""
+    //private var contraseña_comparar = ""
+
+    private lateinit var progressbar: ProgressBar
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        auth = FirebaseAuth.getInstance()
+        progressbar = findViewById(R.id.progressBar)
+
         btLogearse.setOnClickListener {
+
             var correo_Login = etCorreo.text.toString()
             var contraseña_Login = etContraseña.text.toString()
-            var datosrecibidos: Bundle? = intent.extras
-
-            if(datosrecibidos !== null){
-                correo_comparar = datosrecibidos?.getString("correo")!!
-                contraseña_comparar = datosrecibidos?.getString("contraseña")!!
-            }else{
-
-            }
 
             if(correo_Login == ""){
                 Toast.makeText(this, "Email Address field is empty", Toast.LENGTH_LONG).show()
@@ -37,64 +43,56 @@ class LoginActivity : AppCompatActivity() {
                 if(contraseña_Login == ""){
                     Toast.makeText(this, "Password field is empty", Toast.LENGTH_LONG).show()
                 } else{
-
-                    if(correo_Login == correo_comparar){
-
-                        if(contraseña_Login == contraseña_comparar){
-
-                            var intent = Intent(this,MainActivity::class.java)
-                            intent.putExtra("correo",correo_comparar)
-                            intent.putExtra("contraseña",contraseña_comparar)
-                            startActivity(intent)
-                            finish()
-
-                        } else{
-                            Toast.makeText(this, "Password is incorrect", Toast.LENGTH_LONG).show()
-                        }
-
-                    } else{
-                        Toast.makeText(this, "Email Address is incorrect", Toast.LENGTH_LONG).show()
-                    }
+                            signInUser()
                 }
             }
         }
 
         tvRegistrarse.setOnClickListener {
-
-            var intent = Intent(this,RegistroActivity::class.java)
-            intent.putExtra("correo",correo_comparar)
-            intent.putExtra("contraseña",contraseña_comparar)
-            startActivityForResult(intent,12)
-
+            goToRegistroActivity()
         }
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun signInUser(){
+        progressbar.visibility = View.VISIBLE
+        auth.signInWithEmailAndPassword(etCorreo.text.toString(), etContraseña.text.toString())
 
-        if (requestCode == 12 && resultCode == Activity.RESULT_OK) {
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Toast.makeText(baseContext, "Logged", Toast.LENGTH_SHORT).show()
+                    Log.d("TAG", "signInWithEmail:success")
+                    goToMainActivity()
 
-            correo_comparar = data!!.extras!!.getString("correo").toString()
-            contraseña_comparar = data!!.extras!!.getString("contraseña").toString()
-
-            Toast.makeText(this, "Resitered successfully", Toast.LENGTH_LONG).show()
-            Log.d("name", data!!.extras!!.getString("correo"))
-            etCorreo.setText("")
-            etContraseña.setText("")
-
-        } else{
-            if (requestCode == 12 && resultCode == Activity.RESULT_FIRST_USER) {
-
-                correo_comparar = data!!.extras!!.getString("correo").toString()
-                contraseña_comparar = data!!.extras!!.getString("contraseña").toString()
-                etCorreo.setText("")
-                etContraseña.setText("")
-                Toast.makeText(this, "Login", Toast.LENGTH_LONG).show()
+                } else {
+                    progressbar.visibility = View.GONE
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "signInWithEmail:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                }
 
             }
-        }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null)
+            goToMainActivity()
+    }
+
+    private  fun goToMainActivity(){
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private  fun goToRegistroActivity(){
+        val intent = Intent(this,RegistroActivity::class.java)
+        startActivity(intent)
     }
 
 }
-
