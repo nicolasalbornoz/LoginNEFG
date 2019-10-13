@@ -1,41 +1,102 @@
 package com.example.loginnefg
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.cart.view.*
+import com.squareup.picasso.Picasso
 
-class RestaurantesAdapter: RecyclerView.Adapter<RestaurantesAdapter.RestaurantesViewHolder>{
+class RestaurantesAdapter (var list: ArrayList<Restaurante>): RecyclerView.Adapter<RestaurantesAdapter.RestaurantesViewHolder>(), Filterable {
 
-    private var listaRestaurantes: MutableList<Info>? = null
-    private var context: Context? = null
+    private var listaRestaurantesFULL: ArrayList<Restaurante> = ArrayList(list)
 
-    constructor(ok:String,context: Context){
-        this.context = context
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantesViewHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.cart,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantesAdapter.RestaurantesViewHolder {
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.restaurant_item,parent,false)
         return RestaurantesViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return 1
+        return list.size
     }
 
     override fun onBindViewHolder(holder: RestaurantesViewHolder, position: Int) {
-        var peluchitos = listaRestaurantes!![position]
-        holder.loadItem(peluchitos)
+        holder.loadItem(list[position])
+
+    }
+
+    override fun getFilter(): Filter {
+
+        return object : Filter(){
+
+            override fun performFiltering(charString: CharSequence?): FilterResults {
+
+                val charSearch = charString.toString()
+                var FilteredList: ArrayList<Restaurante> = ArrayList()
+
+                if(charSearch.isEmpty()){
+
+                    FilteredList.addAll(listaRestaurantesFULL)
+
+                }else{
+                    for(row: Restaurante in listaRestaurantesFULL){
+                        if(row.nombre!!.toLowerCase().contains(charSearch.toLowerCase())){
+                            FilteredList.add(row)
+                        }
+                    }
+                }
+
+                val filterResult = FilterResults()
+                filterResult.values = FilteredList
+                return filterResult
+            }
+
+            override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults?) {
+                list.clear()
+                list = filterResults!!.values as ArrayList<Restaurante>
+                notifyDataSetChanged()
+            }
+
+        }
     }
 
     class RestaurantesViewHolder(itemview: View): RecyclerView.ViewHolder(itemview){
-        fun loadItem(Restaurante:Info) {
-            itemView.tvRestaurante_stock.text = "Restaurante1"
+
+        /*init{
+            itemView.setOnClickListener(this)
+        }*/
+
+        fun loadItem(restaurante:Restaurante) {
+
+            val imagen: ImageView = itemView.findViewById(R.id.Iv_ImagenRestaurante)
+            val nombre: TextView = itemView.findViewById(R.id.tv_NombreRestaurante)
+            val clase: TextView = itemView.findViewById(R.id.tv_ClaseRestaurante)
+            val precio: TextView = itemView.findViewById(R.id.tv_PrecioRestaurante)
+            val valoracion: TextView = itemView.findViewById(R.id.tv_Puntuacion)
+
+            nombre.text = restaurante.nombre
+            clase.text = restaurante.clase
+            precio.text = "Precio(" + restaurante.precio + ")"
+            valoracion.text = restaurante.valoracion.toString()
+            Picasso.get().load(restaurante.imagen!!).into(imagen)
+
+            itemView.setOnClickListener{
+                Toast.makeText(itemView.context, restaurante.nombre, Toast.LENGTH_LONG).show()
+                val intent = Intent(itemView.context,InfoRestauranteActivity::class.java)
+                intent.putExtra("imagen",restaurante.imagen!!)
+                itemView.context.startActivity(intent)
+            }
+
         }
+
+        /*override fun onClick(p0: View?) {
+            val intent = Intent(itemView.context,InfoRestauranteActivity::class.java)
+            intent.putExtra("imagen",)
+            itemView.context.startActivity(intent)
+
+        }*/
     }
 
 }

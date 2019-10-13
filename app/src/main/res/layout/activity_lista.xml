@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ListaActivity">
+
+
+        <!--<TextView    android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:hint="Buscar"
+                      android:id="@+id/ed_Buscar_restaurante"
+                      android:layout_margin="10dp"/>-->
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="5dp">
+
+            <Button android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bt_filtros"
+                    android:text="@string/filtros"
+                    android:textColor="@color/white"
+                    android:layout_margin="10dp"
+                    android:background="@color/orange"
+            />
+
+            <Button android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cerca_de_m"
+                    android:id="@+id/bt_cerca_De_Mi"
+                    android:background="@color/orange"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+            />
+
+        </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/recycler_Lista_principal">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

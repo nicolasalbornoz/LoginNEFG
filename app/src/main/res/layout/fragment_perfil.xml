@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".PerfilFragment"
+              android:orientation="vertical"
+              android:background="@color/white">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="282dp">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="@color/boton_login">
+    </RelativeLayout>
+
+        <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:id="@+id/bt_cerrar_sesion"
+                    android:src="@drawable/ic_arrow"/>
+            <TextView
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cerrar sesión"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+            <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="111dp"
+                    android:src="@drawable/ic_perfil"
+                    android:id="@+id/Iv_Perfil"
+            />
+            <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Nicolás ALbornoz"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:id="@+id/tvNombrePerfil"/>
+            <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="correo@udea.edu.co"
+                    android:textAlignment="center"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    android:id="@+id/tvCorreoPerfil"/>
+            <TextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Medellin"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    android:id="@+id/tvLugarPerfil"/>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="225dp">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lugares_visitados"
+                            android:textSize="15sp"
+                    />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/boton_login"/>
+
+                </LinearLayout>
+                <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lugares_guardados"
+                            android:textSize="15sp"
+                    />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/boton_login"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:background="@color/gainsboro">
+
+        <ImageView android:layout_width="50dp" 
+                   android:layout_height="50dp"
+                   android:src="@drawable/star"
+                   android:padding="5dp"
+        />
+        
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="@string/lugares_favoritos"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="10dp"
+                  android:padding="5dp"
+        />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/recycler_Fav">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

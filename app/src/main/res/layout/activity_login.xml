@@ -10,8 +10,8 @@
             tools:context=".LoginActivity">
 
         <ImageView android:layout_width="match_parent"
-                   android:layout_height="0dp"
-                   android:layout_weight="1"
+                   android:layout_height="250dp"
+                   android:layout_weight="0"
                    android:src="@drawable/restaurant"
         />
 
@@ -59,27 +59,26 @@
                       android:drawablePadding="10dp"
                       android:drawableStart="@drawable/candado"
             />
-            <!--<com.facebook.login.widget.LoginButton-->
-                    <!--android:id="@+id/login_button"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_gravity="center_horizontal"-->
-                    <!--android:layout_marginTop="30dp"-->
-                    <!--android:layout_marginBottom="30dp" />-->
+
+            <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp" />
+
+            <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"/>
 
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal"
-                          android:layout_marginTop="25dp"
-                          android:gravity="center"
-            >
-
-                <!--<ImageView android:layout_width="40dp"
-                           android:layout_height="40dp"
-                           android:layout_marginRight="50dp"
-                           android:src="@drawable/facebook"
-                           android:layout_gravity="center_vertical"
-                />-->
+                          android:gravity="center">
 
                 <Button android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -91,12 +90,12 @@
                         android:background="@color/boton_login"
                 />
 
-                <ImageView android:layout_width="40dp"
+                <!--<ImageView android:layout_width="40dp"
                            android:layout_height="40dp"
                            android:layout_marginLeft="50dp"
                            android:src="@drawable/gmail"
                            android:layout_gravity="center_vertical"
-                />
+                />-->
 
             </LinearLayout>
 

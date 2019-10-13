@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+              android:orientation="vertical"
              tools:context=".BuscarFragment">
 
     <LinearLayout android:layout_width="match_parent"
@@ -11,12 +12,13 @@
                   tools:ignore="MissingConstraints">
 
         <ImageView android:layout_width="match_parent"
-                   android:layout_height="200dp"
-                   android:src="@drawable/logi"
+                   android:layout_height="250dp"
+                   android:src="@drawable/base"
                    android:id="@+id/imageView"
+
                    tools:ignore="MissingConstraints"/>
 
-        <EditText android:layout_width="match_parent"
+        <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:hint="@string/qu_est_s_buscando"
                   android:layout_gravity="center"
@@ -26,5 +28,147 @@
         />
     </LinearLayout>
 
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_marginTop="15dp">
 
-</FrameLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:gravity="center"
+                      android:layout_marginTop="20dp">
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical"
+                          android:id="@+id/opcion1"
+                          android:gravity="center">
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:src="@drawable/breakfast"
+                />
+
+                <TextView android:layout_width="70dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/desayuno"
+                          android:gravity="center"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical"
+                          android:id="@+id/opcion2"
+                          android:gravity="center">
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:src="@drawable/lunch"
+                />
+
+                <TextView android:layout_width="70dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/almuerzo"
+                          android:gravity="center"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical"
+                          android:id="@+id/opcion3"
+                          android:gravity="center">
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:src="@drawable/meal"
+                />
+
+                <TextView android:layout_width="70dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/cena"
+                          android:gravity="center"
+                />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="40dp">
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical"
+                          android:id="@+id/opcion4"
+                          android:gravity="center">
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:src="@drawable/coffee"
+                />
+
+                <TextView android:layout_width="70dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/caf"
+                          android:gravity="center"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical"
+                          android:id="@+id/opcion5"
+                          android:gravity="center">
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:src="@drawable/cake"
+                />
+
+                <TextView android:layout_width="70dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/postres"
+                          android:gravity="center"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical"
+                          android:id="@+id/opcion6"
+                          android:gravity="center">
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:src="@drawable/martini"
+                />
+
+                <TextView android:layout_width="70dp"
+                          android:layout_height="wrap_content"
+                          android:text="@string/bar"
+                          android:gravity="center"
+                />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

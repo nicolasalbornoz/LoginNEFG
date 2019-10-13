@@ -16,7 +16,31 @@
     <string name="Perfil">Perfil</string>
     <string name="qu_est_s_buscando">¿Qué estás buscando?</string>
 
+    <string name="facebook_app_id" translatable="false">2760923163920977</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2760923163920977</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="restaurante_1">Restaurante 1</string>
+    <string name="desayuno">Desayuno</string>
+    <string name="almuerzo">Almuerzo</string>
+    <string name="cena">Cena</string>
+    <string name="caf">Café</string>
+    <string name="postres">Postres</string>
+    <string name="bar">Bar</string>
+    <string name="lugares_visitados">Lugares visitados</string>
+    <string name="destacados">Destacados</string>
+    <string name="tus_lugares">Tus Lugares</string>
+    <string name="lugares_guardados">Lugares guardados</string>
+    <string name="lugares_favoritos">Lugares favoritos</string>
+    <string name="crear_lista">Crear lista</string>
+    <string name="filtros">Filtros</string>
+    <string name="cerca_de_m">Cerca de mí</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_info_restaurante">InfoRestauranteActivity</string>
+    <string name="tab_text_1">Destacado</string>
+    <string name="tab_text_2">Info</string>
+    <string name="tab_text_3">Fotos</string>
+    <string name="tab_text_4">Comentarios</string>
 </resources>

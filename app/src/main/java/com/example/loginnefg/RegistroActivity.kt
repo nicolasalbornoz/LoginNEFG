@@ -88,9 +88,10 @@ class RegistroActivity : AppCompatActivity() {
 
                     val user = auth.currentUser
                     val userDB = dbReference.child(user?.uid.toString())
-                    userDB.child("Name").setValue(usuario)
+                    userDB.child("Nombre_Usuario").setValue(usuario)
                     userDB.child("Email").setValue(correo)
                     goToLogin()
+
                 } else {
                     progressbar.visibility = View.GONE
                     // If sign in fails, display a message to the user.
