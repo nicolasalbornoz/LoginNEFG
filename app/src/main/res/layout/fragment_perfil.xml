@@ -63,14 +63,7 @@
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     android:id="@+id/tvCorreoPerfil"/>
-            <TextView
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Medellin"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    android:id="@+id/tvLugarPerfil"/>
+
         </LinearLayout>
 
         <androidx.cardview.widget.CardView

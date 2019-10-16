@@ -43,4 +43,8 @@
     <string name="tab_text_2">Info</string>
     <string name="tab_text_3">Fotos</string>
     <string name="tab_text_4">Comentarios</string>
+    <string name="valoraci_n">Valoración</string>
+    <string name="direcci_n">Dirección</string>
+    <string name="horario">Horario</string>
+    <string name="ver_en_google_maps">Ver en Google Maps</string>
 </resources>

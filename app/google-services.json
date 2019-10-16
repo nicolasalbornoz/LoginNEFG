@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "417886450165",
+    "firebase_url": "https://loginnefg.firebaseio.com",
+    "project_id": "loginnefg",
+    "storage_bucket": "loginnefg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417886450165:android:8884fa4f2de6e3a0",
+        "android_client_info": {
+          "package_name": "com.example.loginnefg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417886450165-894qmeh16lbrvgv0rt86mtcm23bmc3kj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loginnefg",
+            "certificate_hash": "401d6f2403ee93730aae95b9f5311739475b15be"
+          }
+        },
+        {
+          "client_id": "417886450165-opdk4jb5r2v0vjm9dbqvak3se1s9vnin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-2jTmiXbog5ag4qz9n_4FlH9mKmHJeb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417886450165-opdk4jb5r2v0vjm9dbqvak3se1s9vnin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

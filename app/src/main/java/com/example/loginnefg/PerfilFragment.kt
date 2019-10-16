@@ -27,6 +27,11 @@ class PerfilFragment : Fragment() {
     private lateinit var dbReference: DatabaseReference
     private lateinit var database: FirebaseDatabase
 
+    private lateinit var dbReference2: DatabaseReference
+    private lateinit var database2: FirebaseDatabase
+
+    private lateinit var adapter: RestaurantesAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,8 +39,12 @@ class PerfilFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
+        val user = FirebaseAuth.getInstance().currentUser
+
         database = FirebaseDatabase.getInstance()
+        database2 = FirebaseDatabase.getInstance()
         dbReference = database.reference.child("User")
+        dbReference2 = database2.reference.child("User").child(user?.uid.toString()).child("Favoritos")
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
@@ -54,13 +63,27 @@ class PerfilFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL,false)
 
-        val restaurantes = ArrayList<Restaurante>()
+        dbReference2.addValueEventListener(object: ValueEventListener{
+            val restaurantes1 = ArrayList<Restaurante>()
 
+            override fun onCancelled(p0: DatabaseError) {
 
+            }
 
-        val adapter = RestaurantesAdapter(restaurantes)
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-        recyclerView.adapter = adapter
+                if(dataSnapshot.exists()){
+
+                    for (dataSnapshot1 in dataSnapshot.children){
+                        var restauranteF = dataSnapshot1.getValue(Restaurante::class.java)
+                        restaurantes1.add(restauranteF!!)
+                    }
+                    adapter = RestaurantesAdapter(restaurantes1)
+                    recyclerView.adapter = adapter
+                }
+            }
+
+        })
 
         dbReference.addValueEventListener(object: ValueEventListener{
 
